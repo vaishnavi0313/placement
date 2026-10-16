@@ -1,0 +1,180 @@
+.journeys {
+  background: var(--white);
+}
+
+.journeys__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.journeys__tabs {
+  display: inline-flex;
+  padding: 5px;
+  background: var(--cream);
+  border-radius: 999px;
+  gap: 4px;
+}
+
+.journeys__tabs button {
+  border: 0;
+  background: none;
+  border-radius: 999px;
+  padding: 9px 16px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.journeys__tabs button span {
+  font-size: 0.72rem;
+  background: var(--white);
+  border-radius: 999px;
+  padding: 1px 7px;
+}
+
+.journeys__tabs button.is-active {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.journeys__tabs button.is-active span {
+  background: var(--coral);
+  color: var(--navy);
+}
+
+.journeys__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 18px;
+}
+
+.jcard {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  background: var(--cream);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 1.5px solid transparent;
+  animation: reveal 0.5s var(--ease) both;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.jcard:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.jcard.is-active {
+  border-color: var(--accent);
+}
+
+.jcard__img {
+  height: 100%;
+  min-height: 190px;
+}
+
+.jcard__body {
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.jcard__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jcard__days {
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  color: var(--coral);
+}
+
+.jcard h3 {
+  font-size: 1.5rem;
+  margin-top: 8px;
+}
+
+.jcard__dates {
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.jcard__meta {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+.jcard__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+.jcard__confirm {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.jcard__yes {
+  background: var(--danger);
+  color: var(--white);
+}
+
+.journeys__empty {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 48px 20px;
+  border: 1.5px dashed var(--line);
+  border-radius: var(--r-xl);
+}
+
+.journeys__empty p {
+  color: var(--ink-soft);
+  max-width: 420px;
+}
+
+.journeys__empty-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+@media (max-width: 600px) {
+  .journeys__tabs {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .journeys__tabs button {
+    flex: 1 0 auto;
+    padding: 9px 12px;
+  }
+
+  .journeys__list {
+    grid-template-columns: 1fr;
+  }
+
+  .jcard {
+    grid-template-columns: 100px 1fr;
+  }
+}

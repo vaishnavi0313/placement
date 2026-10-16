@@ -1,0 +1,130 @@
+.routes {
+  background: var(--white);
+}
+
+.routes__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.routes__pick {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-mute);
+}
+
+.routes__pick .input {
+  min-width: 140px;
+  background: var(--cream);
+}
+
+.route {
+  list-style: none;
+  margin: 30px 0 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  position: relative;
+}
+
+.route__step {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+  animation: reveal 0.5s var(--ease) both;
+}
+
+.route__step:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  top: 18px;
+  right: -12px;
+  transform: translateX(50%);
+  color: var(--ink-mute);
+  font-size: 1.1rem;
+}
+
+.route__icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--c);
+  color: var(--white);
+  font-size: 1.5rem;
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--c) 35%, transparent);
+  margin-bottom: 8px;
+}
+
+.route__step strong {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+}
+
+.route__step small {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.route__dur {
+  color: var(--ink-mute) !important;
+}
+
+.routes__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+@media (max-width: 720px) {
+  .route {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .route__step {
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: left;
+    gap: 4px 12px;
+    padding-left: 70px;
+    min-height: 54px;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .route__icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+  }
+
+  .route__step strong {
+    width: 100%;
+  }
+
+  .route__step:not(:last-child)::after {
+    content: '';
+    top: 58px;
+    left: 27px;
+    right: auto;
+    width: 2px;
+    height: 14px;
+    background: var(--line);
+    transform: none;
+  }
+}

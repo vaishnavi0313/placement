@@ -1,0 +1,326 @@
+.jmap {
+  margin-top: 40px;
+  background: var(--white);
+  border-radius: var(--r-xl);
+  padding: clamp(20px, 3vw, 32px);
+  border: 1px solid var(--line);
+}
+
+.jmap__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.jmap__head h3 {
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  margin-top: 6px;
+}
+
+.jmap__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.jmap__filters .chip {
+  padding: 7px 12px;
+  font-size: 0.82rem;
+}
+
+.jmap__swatch {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.jmap__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 22px;
+}
+
+.jmap__canvas {
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: #eef3e6;
+  aspect-ratio: 100 / 64;
+}
+
+.jmap__canvas--coast,
+.jmap__canvas--island {
+  background: #f4ecd9;
+}
+
+.jmap__canvas--desert {
+  background: #f6e8d2;
+}
+
+.jmap__canvas--alps {
+  background: #e8f0f5;
+}
+
+.jmap__canvas svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.jmap__empty {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--ink-soft);
+  padding: 20px;
+  text-align: center;
+}
+
+.terrain__contour {
+  fill: none;
+  stroke: #b9cfa7;
+  stroke-width: 0.3;
+}
+
+.terrain__river {
+  fill: none;
+  stroke: #a9d2e3;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}
+
+.terrain__sea {
+  fill: #cfe6ef;
+}
+
+.terrain__wave {
+  fill: none;
+  stroke: #9cc7d8;
+  stroke-width: 0.35;
+}
+
+.terrain__land {
+  fill: none;
+  stroke: #e3d2ad;
+  stroke-width: 0.4;
+  stroke-dasharray: 1 1;
+}
+
+.terrain__dune {
+  fill: none;
+  stroke: #e2c597;
+  stroke-width: 0.6;
+}
+
+.terrain__island {
+  fill: #e9f0d9;
+  stroke: #c9dbb0;
+  stroke-width: 0.4;
+}
+
+.terrain__peak {
+  fill: #d5e0e8;
+}
+
+.terrain__snow {
+  fill: var(--white);
+}
+
+.terrain__lake {
+  fill: #bcdcea;
+}
+
+.jmap__route {
+  fill: none;
+  stroke: var(--navy);
+  stroke-width: 0.55;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 1.8s var(--ease) forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.jmap__pin {
+  cursor: pointer;
+  outline: none;
+  animation: pop 0.4s var(--ease) both;
+}
+
+.jmap__pin circle {
+  stroke: var(--white);
+  stroke-width: 0.6;
+  transition: r 0.2s;
+}
+
+.jmap__pin text {
+  font-size: 2.6px;
+  font-weight: 700;
+  fill: var(--white);
+  font-family: var(--font-body);
+  pointer-events: none;
+}
+
+.jmap__pin.is-active circle {
+  stroke: var(--navy);
+  stroke-width: 0.7;
+}
+
+.jmap__pin:focus-visible circle {
+  stroke: var(--navy);
+  stroke-width: 1;
+}
+
+.jmap__compass circle {
+  fill: var(--white);
+  opacity: 0.85;
+}
+
+.jmap__compass path {
+  fill: var(--coral);
+}
+
+.jmap__compass text {
+  font-size: 2.4px;
+  font-weight: 700;
+  fill: var(--navy);
+}
+
+.jmap__legend {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 5px 10px;
+  border-radius: 999px;
+  color: var(--ink-soft);
+}
+
+.jmap__detail {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.jmap__card {
+  animation: reveal 0.35s var(--ease) both;
+}
+
+.jmap__img {
+  height: 140px;
+  border-radius: var(--r-md);
+}
+
+.jmap__stop {
+  display: inline-block;
+  color: var(--white);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-top: 12px;
+}
+
+.jmap__card h4 {
+  font-size: 1.2rem;
+  margin-top: 6px;
+}
+
+.jmap__card p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+.jmap__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.jmap__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.jmap__hint {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.jmap__stops {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 170px;
+  overflow: auto;
+  display: grid;
+  gap: 2px;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+
+.jmap__stops button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  background: none;
+  text-align: left;
+  font-size: 0.84rem;
+  padding: 5px 6px;
+  border-radius: 8px;
+}
+
+.jmap__stops button:hover,
+.jmap__stops button.is-active {
+  background: var(--cream);
+}
+
+.jmap__stops span {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--white);
+  font-size: 0.68rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.jmap__nav-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--ink-mute);
+}
+
+@media (max-width: 860px) {
+  .jmap__body {
+    grid-template-columns: 1fr;
+  }
+
+  .jmap__legend {
+    font-size: 0.65rem;
+  }
+}

@@ -1,0 +1,246 @@
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  padding: 12px 0;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 var(--line);
+  transition: background 0.3s, box-shadow 0.3s, padding 0.3s;
+}
+
+.nav.is-scrolled,
+.nav.is-open {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 var(--line);
+  padding: 10px 0;
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav__logo {
+  text-decoration: none;
+  color: inherit;
+  margin-right: auto;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--navy);
+}
+
+.logo--light {
+  color: var(--cream);
+}
+
+.logo__text {
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.12rem;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo__text small {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.7rem;
+  color: var(--ink-mute);
+  letter-spacing: 0.02em;
+}
+
+.nav__links {
+  display: flex;
+  gap: 6px;
+}
+
+.nav__links a {
+  position: relative;
+  text-decoration: none;
+  color: var(--navy);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 8px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.nav__links a:hover {
+  background: rgba(16, 36, 58, 0.06);
+}
+
+.nav__links a.is-active {
+  color: var(--blue);
+}
+
+.nav__links a.is-active::after {
+  content: '';
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--blue);
+}
+
+.nav__toggle {
+  display: none;
+}
+
+.nav__search {
+  width: 40px;
+  height: 40px;
+}
+
+.nav__more {
+  position: relative;
+}
+
+.nav__more > .icon-btn {
+  width: 40px;
+  height: 40px;
+}
+
+.nav__menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 210px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-md);
+  padding: 6px;
+  animation: reveal 0.2s var(--ease) both;
+}
+
+.nav__menu button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  background: none;
+  border-radius: 10px;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--navy);
+}
+
+.nav__menu button:hover {
+  background: var(--sky);
+}
+
+.nav__menu svg {
+  color: var(--blue);
+}
+
+.nav__menu span {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav__menu small {
+  font-weight: 500;
+  font-size: 0.75rem;
+  color: var(--ink-mute);
+}
+
+.nav__menu i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ink-mute);
+}
+
+.nav__menu i.is-ready {
+  background: var(--teal);
+}
+
+.nav__drawer {
+  display: none;
+}
+
+@media (max-width: 1180px) {
+  .nav__cta {
+    display: none;
+  }
+}
+
+@media (max-width: 960px) {
+  .nav__links,
+  .nav__cta,
+  .nav__search {
+    display: none;
+  }
+
+  .nav__more {
+    display: none;
+  }
+
+  .nav__toggle {
+    display: inline-grid;
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
+
+  .nav__drawer {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: fixed;
+    inset: 66px 0 0;
+    background: var(--cream);
+    padding: 24px var(--gutter);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+
+  .nav.is-open .nav__drawer {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav__drawer a {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: var(--navy);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+  }
+
+  .nav.is-open .nav__drawer a {
+    opacity: 1;
+    transform: none;
+  }
+
+  .nav__drawer .btn {
+    margin-top: 12px;
+    padding: 18px;
+  }
+}

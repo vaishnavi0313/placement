@@ -1,0 +1,93 @@
+.modes__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.mode {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 20px 10px 16px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--white);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s, border-color 0.25s;
+}
+
+.mode:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.mode.is-active {
+  border-color: var(--m);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--m) 18%, transparent);
+}
+
+.mode__icon {
+  font-size: 2.1rem;
+  color: var(--m);
+  margin-bottom: 6px;
+}
+
+.mode strong {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+}
+
+.mode small {
+  font-size: 0.74rem;
+  color: var(--ink-mute);
+  text-align: center;
+}
+
+.mode__check {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: var(--white);
+  background: var(--m);
+  border-radius: 50%;
+  padding: 3px;
+  width: 20px;
+  height: 20px;
+}
+
+.modes__tip {
+  margin-top: 16px;
+  padding: 14px 18px;
+  border-radius: var(--r-md);
+  background: var(--white);
+  border-left: 4px solid var(--m);
+  color: var(--ink-soft);
+  animation: reveal 0.35s var(--ease) both;
+}
+
+.modes__tip strong {
+  color: var(--navy);
+}
+
+@media (max-width: 1024px) {
+  .modes__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .modes__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .mode {
+    padding: 14px 6px 12px;
+  }
+
+  .mode__icon {
+    font-size: 1.7rem;
+  }
+}

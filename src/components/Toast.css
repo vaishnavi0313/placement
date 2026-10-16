@@ -1,0 +1,4 @@
+.toast-region { position: fixed; z-index: 140; left: 50%; bottom: 24px; transform: translateX(-50%); width: max-content; max-width: calc(100vw - 32px); }
+.toast { display: flex; align-items: center; gap: 10px; background: var(--navy); color: var(--white); padding: 12px 12px 12px 16px; border-radius: 14px; box-shadow: var(--shadow-lg); font-size: .92rem; animation: reveal .35s var(--ease) both; }
+.toast--success svg:first-child { color: #6fe0c9; }
+.toast button { border: 0; background: rgba(255,255,255,.12); color: inherit; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; }
